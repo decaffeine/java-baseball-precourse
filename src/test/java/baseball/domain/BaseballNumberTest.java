@@ -1,9 +1,9 @@
 package baseball.domain;
 
-import org.junit.jupiter.api.Test;
-
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+
+import org.junit.jupiter.api.Test;
 
 public class BaseballNumberTest {
 
@@ -27,7 +27,7 @@ public class BaseballNumberTest {
     }
 
     @Test
-    void 입력이_객체로_변환됨() {
+    void 입력이_객체로_변환() {
         assertThat(new BaseballNumber("537")
                 .getNumbers()).containsExactly(5, 3, 7);
 
