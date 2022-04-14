@@ -12,5 +12,12 @@ public class BaseballGameTest {
         BaseballGame game = new BaseballGame(number);
         assertThat(game.attempt(number).isGameFinished()).isTrue();
     }
-    
+
+    @Test
+    void differentNumber() {
+        BaseballNumber computer = new BaseballNumber("257");
+        BaseballNumber user = new BaseballNumber("135");
+        BaseballGame game = new BaseballGame(computer);
+        assertThat(game.attempt(user).isGameFinished()).isFalse();
+    }
 }

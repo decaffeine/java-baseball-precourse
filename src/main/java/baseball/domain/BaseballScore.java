@@ -49,9 +49,14 @@ public class BaseballScore {
         return strike == 3;
     }
 
+    private boolean isNothing() {
+        return strike == 0 && ball == 0;
+    }
+
     @Override
     public String toString() {
-        return (ball > 0 ? (ball + "볼 ") : "")
-                + (strike > 0 ? (strike + "스트라이크") : "");
+        return isNothing() ? "낫싱" : (
+                (ball > 0 ? (ball + "볼 ") : "")
+                        + (strike > 0 ? (strike + "스트라이크") : ""));
     }
 }
