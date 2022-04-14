@@ -1,11 +1,10 @@
 package baseball.domain;
 
-import java.util.List;
 import java.util.Objects;
 
 public class BaseballScore {
 
-    private BaseballNumber answer;
+    private final BaseballNumber answer;
     private int ball;
     private int strike;
 
@@ -19,7 +18,7 @@ public class BaseballScore {
 
     private int scoreBall(BaseballNumber guess, int location) {
         int result = 0;
-        for (int j = 0; j < answer.getNumbers().size(); j++) {
+        for (int j = 0; j < BaseballNumber.MAX_DIGIT; j++) {
             result +=
                     (j != location) && Objects.equals(answer.getNumbers().get(j), guess.getNumbers().get(location)) ? 1
                             : 0;
@@ -29,7 +28,7 @@ public class BaseballScore {
 
     private int scoreStrike(BaseballNumber guess, int location) {
         int result = 0;
-        for (int j = 0; j < guess.getNumbers().size(); j++) {
+        for (int j = 0; j < BaseballNumber.MAX_DIGIT; j++) {
             result +=
                     (j == location) && Objects.equals(answer.getNumbers().get(j), guess.getNumbers().get(location)) ? 1
                             : 0;
@@ -50,4 +49,9 @@ public class BaseballScore {
         return strike == 3;
     }
 
+    @Override
+    public String toString() {
+        return (ball > 0 ? (ball + "볼 ") : "")
+                + (strike > 0 ? (strike + "스트라이크") : "");
+    }
 }

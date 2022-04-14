@@ -6,11 +6,11 @@ import java.util.regex.Pattern;
 
 public class BaseballNumber {
 
-    private static final int MAX_DIGIT = 3;
+    public static final int MAX_DIGIT = 3;
     private static final Pattern pattern = Pattern.compile("^[1-9]*$");
     private final List<Integer> numbers;
 
-    BaseballNumber(String line) {
+    public BaseballNumber(String line) {
         validateInput(line);
         int input = Integer.parseInt(line);
 

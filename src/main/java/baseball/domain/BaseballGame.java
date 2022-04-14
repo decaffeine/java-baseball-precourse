@@ -7,12 +7,8 @@ public class BaseballGame {
         this.answer = answer;
     }
 
-    public String attempt(BaseballNumber other) {
-        if (answer.getNumbers().equals(other.getNumbers())) {
-            return "게임 끝";
-        }
-        return "";
+    public BaseballScore attempt(BaseballNumber other) {
+        return new BaseballScore(answer, other);
     }
-
 
 }

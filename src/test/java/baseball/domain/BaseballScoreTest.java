@@ -23,4 +23,21 @@ public class BaseballScoreTest {
         assertThat(score.getStrike()).isEqualTo(1);
     }
 
+    @Test
+    void 게임_진행_0볼_2스트라이크() {
+        BaseballNumber computer = new BaseballNumber("245");
+        BaseballNumber user = new BaseballNumber("246");
+        BaseballScore score = new BaseballScore(computer, user);
+        assertThat(score.getBall()).isEqualTo(0);
+        assertThat(score.getStrike()).isEqualTo(2);
+    }
+
+    @Test
+    void 게임_진행_낫싱() {
+        BaseballNumber computer = new BaseballNumber("123");
+        BaseballNumber user = new BaseballNumber("789");
+        BaseballScore score = new BaseballScore(computer, user);
+        assertThat(score.getBall()).isEqualTo(0);
+        assertThat(score.getStrike()).isEqualTo(0);
+    }
 }
