@@ -20,6 +20,10 @@ public class BaseballNumber {
         numbers.add(input % 10);
     }
 
+    public BaseballNumber(List<Integer> numbers) {
+        this.numbers = numbers;
+    }
+
     public List<Integer> getNumbers() {
         return numbers;
     }

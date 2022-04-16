@@ -8,6 +8,12 @@ public class BaseballScore {
     private int ball;
     private int strike;
 
+    BaseballScore() {
+        this.answer = null;
+        this.ball = 0;
+        this.strike = 0;
+    }
+
     BaseballScore(BaseballNumber answer, BaseballNumber guess) {
         this.answer = answer;
         for (int i = 0; i < guess.getNumbers().size(); i++) {
@@ -45,7 +51,7 @@ public class BaseballScore {
         return strike;
     }
 
-    public boolean isGameFinished() {
+    protected boolean isGameFinished() {
         return strike == 3;
     }
 
