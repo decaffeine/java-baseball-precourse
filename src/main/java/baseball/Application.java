@@ -13,6 +13,20 @@ import java.util.TreeSet;
 
 public class Application {
     public static void main(String[] args) {
+        int gameStatus = 0; // enum으로 변경?
+        while (gameStatus < 2) {
+            singleGame();
+            gameStatus = getGameStatusInput();
+        }
+    }
+
+    private static int getGameStatusInput() {
+        System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
+        String input = Console.readLine(); // TODO : 유효성 체크
+        return Integer.parseInt(input);
+    }
+
+    private static void singleGame() {
         BaseballNumber answer = new BaseballNumber(getRandomNumbers());
         BaseballGame game = new BaseballGame(answer);
         while (!game.isGameFinished()) {
