@@ -3,8 +3,8 @@ package baseball;
 import baseball.domain.BaseballGame;
 import baseball.domain.BaseballGameStatus;
 import baseball.domain.BaseballScore;
+import baseball.ui.BaseballGameStatusView;
 import baseball.ui.BaseballNumberView;
-import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 import baseball.domain.BaseballNumber;
 import java.util.ArrayList;
@@ -17,14 +17,8 @@ public class Application {
         BaseballGameStatus status = BaseballGameStatus.IN_A_GAME;
         while (status.isInGame()) {
             singleGame();
-            status = getGameStatusInput();
+            status = BaseballGameStatusView.getInput();
         }
-    }
-
-    private static BaseballGameStatus getGameStatusInput() {
-        System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
-        String input = Console.readLine(); // TODO : 유효성 체크
-        return BaseballGameStatus.from(Integer.parseInt(input));
     }
 
     private static void singleGame() {
