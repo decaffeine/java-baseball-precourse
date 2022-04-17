@@ -26,7 +26,7 @@ public class Application {
             BaseballScore score = game.attempt(user);
             score.print();
         }
-        System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
+        BaseballGameStatusView.printGameEnd();
     }
 
 }
