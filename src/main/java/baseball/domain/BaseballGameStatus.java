@@ -1,26 +1,24 @@
 package baseball.domain;
 
-import java.util.List;
-
 public enum BaseballGameStatus {
     IN_A_GAME(0, "게임 진행중"),
     NEW_GAME(1, "새로운 게임 시작"),
     END(2, "게임 종료");
 
     private int code;
-    private String message;
+    private String description;
 
-    BaseballGameStatus(int code, String message) {
+    BaseballGameStatus(int code, String description) {
         this.code = code;
-        this.message = message;
+        this.description = description;
     }
 
     public int getCode() {
         return code;
     }
 
-    public String getMessage() {
-        return message;
+    public String getDescription() {
+        return description;
     }
 
 
@@ -34,7 +32,7 @@ public enum BaseballGameStatus {
         throw new IllegalArgumentException("1 또는 2를 입력해야 합니다.");
     }
 
-    public boolean isInGame() {
+    public boolean isInAGame() {
         return code < 2;
     }
 }

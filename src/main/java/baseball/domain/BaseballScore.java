@@ -26,8 +26,7 @@ public class BaseballScore {
         int result = 0;
         for (int j = 0; j < BaseballNumber.MAX_DIGIT; j++) {
             result +=
-                    (j != location) && Objects.equals(answer.getNumbers().get(j), guess.getNumbers().get(location)) ? 1
-                            : 0;
+                    (j != location) && Objects.equals(answer.get(j), guess.get(location)) ? 1 : 0;
         }
         return result;
     }
@@ -36,12 +35,10 @@ public class BaseballScore {
         int result = 0;
         for (int j = 0; j < BaseballNumber.MAX_DIGIT; j++) {
             result +=
-                    (j == location) && Objects.equals(answer.getNumbers().get(j), guess.getNumbers().get(location)) ? 1
-                            : 0;
+                    (j == location) && Objects.equals(answer.get(j), guess.get(location)) ? 1 : 0;
         }
         return result;
     }
-
 
     public int getBall() {
         return ball;

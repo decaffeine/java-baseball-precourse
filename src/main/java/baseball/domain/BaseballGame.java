@@ -1,7 +1,7 @@
 package baseball.domain;
 
 public class BaseballGame {
-    private BaseballNumber answer;
+    private final BaseballNumber answer;
     private BaseballScore score;
 
     public BaseballGame(BaseballNumber answer) {
