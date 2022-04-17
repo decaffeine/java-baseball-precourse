@@ -1,6 +1,7 @@
 package baseball;
 
 import baseball.domain.BaseballGame;
+import baseball.domain.BaseballGameStatus;
 import baseball.domain.BaseballScore;
 import baseball.ui.BaseballNumberView;
 import camp.nextstep.edu.missionutils.Console;
@@ -13,17 +14,17 @@ import java.util.TreeSet;
 
 public class Application {
     public static void main(String[] args) {
-        int gameStatus = 0; // enum으로 변경?
-        while (gameStatus < 2) {
+        BaseballGameStatus status = BaseballGameStatus.IN_A_GAME;
+        while (status.isInGame()) {
             singleGame();
-            gameStatus = getGameStatusInput();
+            status = getGameStatusInput();
         }
     }
 
-    private static int getGameStatusInput() {
+    private static BaseballGameStatus getGameStatusInput() {
         System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
         String input = Console.readLine(); // TODO : 유효성 체크
-        return Integer.parseInt(input);
+        return BaseballGameStatus.from(Integer.parseInt(input));
     }
 
     private static void singleGame() {
