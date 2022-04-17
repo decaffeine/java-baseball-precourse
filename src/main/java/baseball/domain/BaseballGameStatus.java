@@ -1,12 +1,12 @@
 package baseball.domain;
 
 public enum BaseballGameStatus {
-    IN_A_GAME(0, "게임 진행중"),
+    GAME_IN_PROGRESS(0, "게임 진행중"),
     NEW_GAME(1, "새로운 게임 시작"),
     END(2, "게임 종료");
 
-    private int code;
-    private String description;
+    private final int code;
+    private final String description;
 
     BaseballGameStatus(int code, String description) {
         this.code = code;
@@ -16,11 +16,6 @@ public enum BaseballGameStatus {
     public int getCode() {
         return code;
     }
-
-    public String getDescription() {
-        return description;
-    }
-
 
     public static BaseballGameStatus from(int code) {
         if (code == NEW_GAME.getCode()) {
@@ -32,7 +27,7 @@ public enum BaseballGameStatus {
         throw new IllegalArgumentException("1 또는 2를 입력해야 합니다.");
     }
 
-    public boolean isInAGame() {
+    public boolean isGameContinue() {
         return code < 2;
     }
 }

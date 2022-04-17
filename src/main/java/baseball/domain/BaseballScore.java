@@ -56,6 +56,10 @@ public class BaseballScore {
         return strike == 0 && ball == 0;
     }
 
+    public void print() {
+        System.out.println(toString());
+    }
+
     @Override
     public String toString() {
         return isNothing() ? "낫싱" : (
